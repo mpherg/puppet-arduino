@@ -10,10 +10,10 @@ Install [Arduino](http://www.arduino.cc/) SDK for Mac OS X.
 include arduino
 ```
 
-If you would like the beta version:
+Set the version you want using Hiera:
 
-```puppet
-include arduino::beta
+```yaml
+arduino::version: '1.6.5'
 ```
 
 Or a nightly:

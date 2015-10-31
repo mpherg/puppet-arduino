@@ -1,17 +1,18 @@
 require 'spec_helper'
 
-classes = {
-  'arduino'          => 'http://downloads.arduino.cc/arduino-1.6.3-macosx.zip',
-  'arduino::beta'    => 'http://downloads.arduino.cc/arduino-1.5.6-r2-macosx.zip',
-  'arduino::nightly' => 'http://downloads.arduino.cc/arduino-nightly-macosx.zip'
-}
+describe 'arduino' do
+  let(:params) do
+    {
+      :version => '1.6.5'
+    }
+  end
 
-classes.each do |version, source|
-  describe version do
+  describe 'arduino' do
     it do
+      version = '1.6.5'
       should contain_package('Arduino').with({
-        :source   => source,
-        :provider => 'compressed_app'
+        :source   => "http://downloads.arduino.cc/arduino-#{version}-macosx.zip",
+        :provider => 'compressed_app',
       })
     end
   end

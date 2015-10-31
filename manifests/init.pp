@@ -3,9 +3,11 @@
 # Examples
 #
 #   include arduino
-class arduino {
+class arduino (
+  $version = $arduino::version
+){
   package { 'Arduino':
     provider => 'compressed_app',
-    source   => 'http://downloads.arduino.cc/arduino-1.6.3-macosx.zip',
+    source   => "http://downloads.arduino.cc/arduino-${version}-macosx.zip",
   }
 }
